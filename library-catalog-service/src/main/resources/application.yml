@@ -1,0 +1,25 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: library-catalog-service
+
+  datasource:
+    url: jdbc:postgresql://ep-round-sea-a9uxnvq5-pooler.gwc.azure.neon.tech/neondb?sslmode=require
+    username: neondb_owner
+    password: npg_D9oiZHcM1jrf
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer

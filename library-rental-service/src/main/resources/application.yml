@@ -1,0 +1,31 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: library-rental-service
+
+  datasource:
+    url: jdbc:postgresql://ep-long-brook-a9n7k0pi-pooler.gwc.azure.neon.tech/neondb?sslmode=require
+    username: neondb_owner
+    password: npg_LO8Us1SkpXgh
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: rental-service-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "*"
+        spring.json.value.default.type: org.example.libraryrentalservice.adapters.kafka.BookAddedEvent
+        spring.json.use.type.headers: false
