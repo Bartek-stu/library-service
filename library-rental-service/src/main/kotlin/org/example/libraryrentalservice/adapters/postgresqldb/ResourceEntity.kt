@@ -10,5 +10,5 @@ import jakarta.persistence.Table
 data class ResourceEntity(
     @Id
     val bookId: String,
-    val quantity: Int
+    var quantity: Int
 )

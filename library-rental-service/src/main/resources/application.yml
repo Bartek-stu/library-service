@@ -6,9 +6,9 @@ spring:
     name: library-rental-service
 
   datasource:
-    url: jdbc:postgresql://ep-long-brook-a9n7k0pi-pooler.gwc.azure.neon.tech/neondb?sslmode=require
+    url: jdbc:postgresql://ep-jolly-meadow-a9gj0jq3-pooler.gwc.azure.neon.tech/neondb?sslmode=require
     username: neondb_owner
-    password: npg_LO8Us1SkpXgh
+    password: npg_YPU8MXVip2GO
     driver-class-name: org.postgresql.Driver
 
   jpa:

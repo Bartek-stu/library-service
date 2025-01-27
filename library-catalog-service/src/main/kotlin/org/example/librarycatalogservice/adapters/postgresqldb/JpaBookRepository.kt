@@ -10,8 +10,4 @@ import java.util.*
 @Repository
 interface JpaBookRepository: JpaRepository<BookEntity, String> {
     fun findByTitle(title: String): Optional<BookEntity>
-    @Modifying
-    @Transactional
-    @Query("DELETE FROM BookEntity b WHERE b.id = :bookId")
-    fun removeById(bookId: String): Int
 }

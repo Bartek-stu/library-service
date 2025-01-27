@@ -3,6 +3,7 @@ package org.example.librarycatalogservice.adapters.rest
 import org.example.librarycatalogservice.domain.service.ElementDoesNotExistException
 import org.springframework.core.Ordered
 import org.springframework.core.annotation.Order
+import org.springframework.dao.DataIntegrityViolationException
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.validation.FieldError
@@ -30,5 +31,10 @@ class ExceptionHandler {
             fieldName to errorMessage
         }
         return ResponseEntity(errors, HttpStatus.BAD_REQUEST)
+    }
+
+    @ExceptionHandler(DataIntegrityViolationException::class)
+    fun handleDataIntegrityViolationException(ex: DataIntegrityViolationException): ResponseEntity<String> {
+        return ResponseEntity("Duplicate entry for title and author combination", HttpStatus.CONFLICT)
     }
 }

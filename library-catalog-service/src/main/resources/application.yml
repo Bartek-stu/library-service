@@ -6,9 +6,9 @@ spring:
     name: library-catalog-service
 
   datasource:
-    url: jdbc:postgresql://ep-round-sea-a9uxnvq5-pooler.gwc.azure.neon.tech/neondb?sslmode=require
+    url: jdbc:postgresql://ep-dark-bonus-a9e0h8i3-pooler.gwc.azure.neon.tech/neondb?sslmode=require
     username: neondb_owner
-    password: npg_D9oiZHcM1jrf
+    password: npg_1c8GsHCnaMSF
     driver-class-name: org.postgresql.Driver
 
   jpa:
