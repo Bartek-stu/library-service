@@ -1,14 +1,14 @@
 server:
-  port: 8081
+  port: 8082
 
 spring:
   application:
     name: library-rental-service
 
   datasource:
-    url: jdbc:postgresql://ep-jolly-meadow-a9gj0jq3-pooler.gwc.azure.neon.tech/neondb?sslmode=require
-    username: neondb_owner
-    password: npg_YPU8MXVip2GO
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
     driver-class-name: org.postgresql.Driver
 
   jpa:

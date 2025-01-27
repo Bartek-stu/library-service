@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: library-api-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: catalog-service
+          uri: lb://library-catalog-service
+          predicates:
+            - Path=/api/v1/books/**
+#          filters:
+#            - TokenRelay # Forward the token
+        - id: rental-service
+          uri: lb://library-rental-service
+          predicates:
+            - Path=/api/v1/rentals/**
+#          filters:
+#            - TokenRelay= # Forward the token
+server:
+  port: 8080
